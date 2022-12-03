@@ -1,25 +1,37 @@
 import React from 'react';
+import calculate from './logic/calculate';
 
 class Calculator extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      display: 0,
+      total: '',
+      next: null,
+      operation: null,
     };
   }
 
+  clickEvent = (e) => {
+    const data = e.target.value;
+    const state = calculate(this.state, data);
+    this.setState(state);
+  };
+
   render() {
-    const { display } = this.state;
+    const { total, next, operation } = this.state;
     return (
       <div className="calculator">
         <div className="displayScreen">
-          {display}
+          {total}
+          {operation}
+          {next}
         </div>
         <div className="calcBody">
           <div className="calcRow">
             <button
               type="button"
               value="AC"
+              onClick={this.clickEvent}
               className="calcBtn"
             >
               AC
@@ -27,6 +39,7 @@ class Calculator extends React.Component {
             <button
               type="button"
               value="+/-"
+              onClick={this.clickEvent}
               className="calcBtn"
             >
               +/-
@@ -34,6 +47,7 @@ class Calculator extends React.Component {
             <button
               type="button"
               value="%"
+              onClick={this.clickEvent}
               className="calcBtn"
             >
               %
@@ -41,6 +55,7 @@ class Calculator extends React.Component {
             <button
               type="button"
               value="÷"
+              onClick={this.clickEvent}
               className="calcBtn operator"
             >
               /
@@ -51,6 +66,7 @@ class Calculator extends React.Component {
             <button
               type="button"
               value={7}
+              onClick={this.clickEvent}
               className="calcBtn"
             >
               7
@@ -58,6 +74,7 @@ class Calculator extends React.Component {
             <button
               type="button"
               value={8}
+              onClick={this.clickEvent}
               className="calcBtn"
             >
               8
@@ -65,6 +82,7 @@ class Calculator extends React.Component {
             <button
               type="button"
               value={9}
+              onClick={this.clickEvent}
               className="calcBtn"
             >
               9
@@ -72,6 +90,7 @@ class Calculator extends React.Component {
             <button
               type="button"
               value="x"
+              onClick={this.clickEvent}
               className="calcBtn operator"
             >
               x
@@ -82,6 +101,7 @@ class Calculator extends React.Component {
             <button
               type="button"
               value={4}
+              onClick={this.clickEvent}
               className="calcBtn"
             >
               4
@@ -89,6 +109,7 @@ class Calculator extends React.Component {
             <button
               type="button"
               value={5}
+              onClick={this.clickEvent}
               className="calcBtn"
             >
               5
@@ -96,6 +117,7 @@ class Calculator extends React.Component {
             <button
               type="button"
               value={6}
+              onClick={this.clickEvent}
               className="calcBtn"
             >
               6
@@ -103,6 +125,7 @@ class Calculator extends React.Component {
             <button
               type="button"
               value="-"
+              onClick={this.clickEvent}
               className="calcBtn operator"
             >
               -
@@ -113,6 +136,7 @@ class Calculator extends React.Component {
             <button
               type="button"
               value={1}
+              onClick={this.clickEvent}
               className="calcBtn"
             >
               1
@@ -120,6 +144,7 @@ class Calculator extends React.Component {
             <button
               type="button"
               value={2}
+              onClick={this.clickEvent}
               className="calcBtn"
             >
               2
@@ -127,6 +152,7 @@ class Calculator extends React.Component {
             <button
               type="button"
               value={3}
+              onClick={this.clickEvent}
               className="calcBtn"
             >
               3
@@ -134,6 +160,7 @@ class Calculator extends React.Component {
             <button
               type="button"
               value="+"
+              onClick={this.clickEvent}
               className="calcBtn operator"
             >
               +
@@ -144,7 +171,7 @@ class Calculator extends React.Component {
             <button
               type="button"
               value={0}
-              onClick={this.handleClick}
+              onClick={this.clickEvent}
               className="btn0"
             >
               0
@@ -152,7 +179,7 @@ class Calculator extends React.Component {
             <button
               type="button"
               value="."
-              onClick={this.handleClick}
+              onClick={this.clickEvent}
               className="calcBtn"
             >
               .
@@ -160,7 +187,7 @@ class Calculator extends React.Component {
             <button
               type="button"
               value="="
-              onClick={this.handleClick}
+              onClick={this.clickEvent}
               className="calcBtn operator"
             >
               =
