@@ -18,9 +18,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [React-Bookstore] <a name="about-project"></a>
+# 📖 Math Magicians <a name="about-project"></a>
 
-**[React-Bookstore]** is a Microverse project for setting up a calculator using react.
+**Math Magicians** is a Microverse project for setting up a calculator using react.
 
 ## 🛠 Built With <a name="built-with"></a>
 
